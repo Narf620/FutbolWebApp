@@ -109,6 +109,16 @@ Object oWebApp is a cWebApp
                     Set psCaption to "Consultar y editar datos de equipos."
                     Set psLoadViewOnClick to "oZoomEquipo"
                 End_Object
+
+                Object oSeleccindejugadoresItem1 is a cWebMenuItemLoadView
+                    Set psCaption to "Selección de jugadores."
+                    Set psLoadViewOnClick to "oSelectJugador"
+                End_Object
+
+                Object oConsultaryeditardatosdejugadoresItem1 is a cWebMenuItemLoadView
+                    Set psCaption to "Consultar y editar datos de jugadores."
+                    Set psLoadViewOnClick to "oZoomJugador"
+                End_Object
             End_Object  
         End_Object  
         
@@ -156,6 +166,8 @@ Object oWebApp is a cWebApp
     Use ZoomEntrenador.wo
     Use SelectEquipo.wo
     Use ZoomEquipo.wo
+    Use SelectJugador.wo
+    Use ZoomJugador.wo
     
 End_Object
 
