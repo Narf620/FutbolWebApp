@@ -119,6 +119,16 @@ Object oWebApp is a cWebApp
                     Set psCaption to "Consultar y editar datos de jugadores."
                     Set psLoadViewOnClick to "oZoomJugador"
                 End_Object
+
+                Object oSeleccionarposicionesdeftbolItem1 is a cWebMenuItemLoadView
+                    Set psCaption to "Seleccionar posiciones de fútbol."
+                    Set psLoadViewOnClick to "oSelectPosicion"
+                End_Object
+
+                Object oConsultaryeditardatosdeposicionesItem1 is a cWebMenuItemLoadView
+                    Set psCaption to "Consultar y editar datos de posiciones."
+                    Set psLoadViewOnClick to "oZoomPosicion"
+                End_Object
             End_Object  
         End_Object  
         
@@ -168,6 +178,8 @@ Object oWebApp is a cWebApp
     Use ZoomEquipo.wo
     Use SelectJugador.wo
     Use ZoomJugador.wo
+    Use SelectPosicion.wo
+    Use ZoomPosicion.wo
     
 End_Object
 
