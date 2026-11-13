@@ -33,7 +33,11 @@ Object oSelectJugador is a cWebView
     End_Object 
 
     Set Main_DD To ojugador_DD
-    Set Server  To ojugador_DD
+    Set Server  to ojugador_DD
+    
+    Procedure OnLoad
+    Send Find of ojugador_DD FIRST_RECORD 1
+End_Procedure
 
 
     Object oList is a cWebList

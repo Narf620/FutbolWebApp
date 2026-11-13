@@ -33,7 +33,11 @@ Object oSelectEntrenador is a cWebView
     End_Object 
 
     Set Main_DD To oentrenador_DD
-    Set Server  To oentrenador_DD
+    Set Server  to oentrenador_DD
+    
+    Procedure OnLoad
+    Send Find of oentrenador_DD FIRST_RECORD 1
+End_Procedure
 
 
     Object oList is a cWebList
@@ -43,6 +47,7 @@ Object oSelectEntrenador is a cWebView
         Set pbFillHeight to True
         Set pbShowHeader to False
         Set piSortColumn to 0
+        Set Server to oentrenador_DD
 
         Object oentrenadorID is a cWebColumn
             Entry_Item entrenador.ID
@@ -76,20 +81,22 @@ Object oSelectEntrenador is a cWebView
 
         Object oDetailButton is a cWebColumnButton
             Set psCaption to "btn"
+            Set Server to oentrenador_DD
             Set piWidth to 45
             Set pbFixedWidth to True
             Set pbResizable to False
             Set piListRowSpan to 1
             Set psBtnCssClass to "WebButtonIcon WebIcon_Info"
             Set peAlign to alignRight
+            
+            WebRegisterPath ntNavigateForward oZoomEntrenador
 
 // ToDo: Fill in the from-main Zoom view object name for navigate forward
 //            WebRegisterPath ntNavigateForward oZoomView
 
             Procedure OnClick
-                Send NavigatePath
-            End_Procedure
-
+    Send NavigatePath
+End_Procedure
             Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
                 Move True to NavigateData.bReadOnly
             End_Procedure
@@ -100,35 +107,30 @@ Object oSelectEntrenador is a cWebView
 //        WebRegisterPath ntNavigateForward oSelectView
 
         Procedure OnRowClick String sRowId
-            tWebNavigateData NavigateData
-            Get GetNavigateData to NavigateData
+    tWebNavigateData NavigateData
+    Get GetNavigateData to NavigateData
 
-            Case Begin
-                Case (NavigateData.eNavigateType = nfFromParent)
-// ToDo: Fill in the from-parent child Select view object name for navigate forward
-Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-//                    Send NavigateForward of oSelectView Self
-                    Case Break
+    Case Begin
+        Case (NavigateData.eNavigateType = nfFromParent)
+            Case Break
 
-                Case (NavigateData.eNavigateType = nfFromChild)
-                    Send NavigateClose Self
-                    Case Break
+        Case (NavigateData.eNavigateType = nfFromChild)
+            Send NavigateClose Self
+            Case Break
 
-                Case (NavigateData.eNavigateType = nfFromMain)
-                    Send NavigateClose Self
-                    Case Break
+        Case (NavigateData.eNavigateType = nfFromMain)
+            Send NavigateClose Self
+            Case Break
 
-                Case Else // must be nfUndefined
-// ToDo: Fill in the from-parent child Select view object name for navigate forward
-Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-//                    Send NavigateForward of oSelectView Self
-
-            Case End
-        End_Procedure
+        Case Else
+            Case Break
+    Case End
+End_Procedure
 
         Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
-            Move True to NavigateData.bReadOnly
-        End_Procedure
+   
+    Move True to NavigateData.bReadOnly
+End_Procedure
 
     End_Object 
 

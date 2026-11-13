@@ -28,7 +28,11 @@ Object oSelectEquipo is a cWebView
     End_Object 
 
     Set Main_DD To oequipo_DD
-    Set Server  To oequipo_DD
+    Set Server  to oequipo_DD
+    
+    Procedure OnLoad
+    Send Find of oequipo_DD FIRST_RECORD 1
+End_Procedure
 
 
     Object oList is a cWebList
