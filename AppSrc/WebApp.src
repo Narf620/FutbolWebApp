@@ -12,6 +12,9 @@ Object oWebApp is a cWebApp
     Set psTheme to "Df_Material"
     Set peApplicationStateMode to asmHistoryAndUrls
     Set psEncryptPassword to "2Zp*)9Yw~Z$1OO.#cN`]Y_y_?~Wdb}(u@D<xToY:"
+    
+    Object oViewStack is a cWebViewStack
+End_Object
 
     Object oCommandbar is a cWebCommandBar                
         Object oMenuBar is a cWebMenuBar
@@ -89,6 +92,11 @@ Object oWebApp is a cWebApp
     
             Object oViewMenu is a cWebMenuItem
                 Set psCaption to C_$View
+                
+                Object oDashboardItem is a cWebMenuItemLoadView
+    Set psCaption to "Dashboard"
+    Set psLoadViewOnClick to "oDashboard"
+End_Object
 
                 Object oSeleccionarEntrenadorItem1 is a cWebMenuItemLoadView
                     Set psCaption to "Seleccionar Entrenador"
@@ -182,6 +190,7 @@ Object oWebApp is a cWebApp
     Use SessionManager.wo
     Use LoginDialog.wo
     Use WebResourceManager.wo
+    Use Dashboard.wo
     Use SelectEntrenador.wo
     Use ZoomEntrenador.wo
     Use SelectEquipo.wo
@@ -192,6 +201,7 @@ Object oWebApp is a cWebApp
     Use ZoomPosicion.wo
     Use SelectLiga.wo
     Use ZoomLiga.wo
+    Use cWebViewStack.pkg
     
 End_Object
 

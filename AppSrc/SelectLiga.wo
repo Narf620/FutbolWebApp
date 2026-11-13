@@ -23,7 +23,11 @@ Object oSelectLiga is a cWebView
     End_Object 
 
     Set Main_DD To oliga_DD
-    Set Server  To oliga_DD
+    Set Server  to oliga_DD
+    
+    Procedure OnLoad
+    Send Find of oliga_DD FIRST_RECORD 1
+End_Procedure
 
 
     Object oList is a cWebList
