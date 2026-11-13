@@ -1,0 +1,16 @@
+# Archivos temporales y bloqueos
+*.lock
+
+# Registros de ejecución
+*.log
+
+# Preferencias personales de DataFlex Studio
+IdeSrc/*.dsk
+
+# Archivos de datos e índices locales de DataFlex
+Data/*.dat
+Data/*.hdr
+Data/*.tag
+Data/*.k1
+Data/*.k2
+Data/*.k3
