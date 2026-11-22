@@ -90,64 +90,7 @@ End_Object
                 End_Object  
             End_Object  
     
-            Object oViewMenu is a cWebMenuItem
-                Set psCaption to C_$View
-                
-                Object oDashboardItem is a cWebMenuItemLoadView
-    Set psCaption to "Dashboard"
-    Set psLoadViewOnClick to "oDashboard"
-End_Object
-
-                Object oSeleccionarEntrenadorItem1 is a cWebMenuItemLoadView
-                    Set psCaption to "Seleccionar Entrenador"
-                    Set psLoadViewOnClick to "oSelectEntrenador"
-                End_Object
-
-                Object oDatosyedicindeentrenadoresItem1 is a cWebMenuItemLoadView
-                    Set psCaption to "Datos y edición de entrenadores."
-                    Set psLoadViewOnClick to "oZoomEntrenador"
-                End_Object
-
-                Object oSeleccindelosequiposdeftbolItem1 is a cWebMenuItemLoadView
-                    Set psCaption to "Selección de los equipos de fútbol."
-                    Set psLoadViewOnClick to "oSelectEquipo"
-                End_Object
-
-                Object oConsultaryeditardatosdeequiposItem1 is a cWebMenuItemLoadView
-                    Set psCaption to "Consultar y editar datos de equipos."
-                    Set psLoadViewOnClick to "oZoomEquipo"
-                End_Object
-
-                Object oSeleccindejugadoresItem1 is a cWebMenuItemLoadView
-                    Set psCaption to "Selección de jugadores."
-                    Set psLoadViewOnClick to "oSelectJugador"
-                End_Object
-
-                Object oConsultaryeditardatosdejugadoresItem1 is a cWebMenuItemLoadView
-                    Set psCaption to "Consultar y editar datos de jugadores."
-                    Set psLoadViewOnClick to "oZoomJugador"
-                End_Object
-
-                Object oSeleccionarposicionesdeftbolItem1 is a cWebMenuItemLoadView
-                    Set psCaption to "Seleccionar posiciones de fútbol."
-                    Set psLoadViewOnClick to "oSelectPosicion"
-                End_Object
-
-                Object oConsultaryeditardatosdeposicionesItem1 is a cWebMenuItemLoadView
-                    Set psCaption to "Consultar y editar datos de posiciones."
-                    Set psLoadViewOnClick to "oZoomPosicion"
-                End_Object
-
-                Object oSeleccindelasligasdeftbolItem1 is a cWebMenuItemLoadView
-                    Set psCaption to "Selección de las ligas de fútbol."
-                    Set psLoadViewOnClick to "oSelectLiga"
-                End_Object
-
-                Object oConsultaryeditardatosdeligasItem1 is a cWebMenuItemLoadView
-                    Set psCaption to "Consultar y editar datos de ligas."
-                    Set psLoadViewOnClick to "oZoomLiga"
-                End_Object
-            End_Object  
+            
         End_Object  
         
         Object oFindToolBar is a cWebToolBar

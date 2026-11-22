@@ -12,6 +12,7 @@ Use cWebList.pkg
 Use cWebColumn.pkg
 
 Object oDashboard is a cWebView
+    Delegate Set phoDefaultView to oDashboard
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
     // Add a DDO Structure 
