@@ -7,6 +7,7 @@ Use cWebPanel.pkg
 Use cWebMenuGroup.pkg
 Use cWebMenuItem.pkg
 Use cWebForm.pkg
+Use cWebButton.pkg
 
 Use Liga.dd
 Use Equipo.dd
@@ -51,21 +52,39 @@ Object oZoomEquipo is a cWebView
             Set psLabel to "Nombre"
         End_Object 
 
-        Object oligaID is a cWebForm
-            Entry_Item liga.ID
-            Set piColumnSpan to 2
-            Set piColumnIndex to 0
-            Set peLabelPosition to lpTop
-            Set psLabel to "LigaID"
-            Set pbPromptButton to True
+       Object oligaID is a cWebForm
+    // Entry_Item equipo.LigaID
+Set Server to oequipo_DD
+    Set piColumnSpan to 2
+    Set piColumnIndex to 0
+    Set peLabelPosition to lpTop
+    Set psLabel to "LigaID"
 
-// ToDo: Fill in the from-child parent Select view object name for navigate forward
-//            WebRegisterPath ntNavigateForward oSelectView
+    Set pbEnabled to True
+    Set pbPromptButton to True
 
-            Procedure OnPrompt
-                Send NavigatePath
-            End_Procedure
-        End_Object 
+    WebRegisterPath ntNavigateForward oSelectLiga
+    
+    Procedure OnPrompt
+    Send NavigateForwardCustom of oSelectLiga Self
+End_Procedure
+
+    Procedure OnNavigateBack Handle hoCallback tWebNavigateData NavigateData
+    String sLigaID
+    String sLigaNombre
+
+    Get NamedValueGet NavigateData.NamedValues "LigaID" to sLigaID
+    Get NamedValueGet NavigateData.NamedValues "LigaNombre" to sLigaNombre
+
+    Set Field_Changed_Value of oequipo_DD Field equipo.LigaID to sLigaID
+
+    WebSet psValue of oligaID to sLigaNombre
+End_Procedure
+    
+    
+    
+End_Object
+        
     End_Object 
 
     Object oActionGroup is a cWebMenuGroup

@@ -97,9 +97,20 @@ WebRegisterPath ntNavigateForward oZoomLiga
 //        WebRegisterPath ntNavigateForward oSelectView
 
         Procedure OnRowClick String sRowId
-    Send NavigatePath of oDetailButton
-End_Procedure
+    Send NavigateClose Self
+        End_Procedure
+        
+       Procedure OnGetNavigateBackData tWebNavigateData ByRef NavigateData Handle hoBackToView
+    String sLigaID
+    String sLigaNombre
 
+    Get Field_Current_Value of oliga_DD Field liga.ID to sLigaID
+    Get Field_Current_Value of oliga_DD Field liga.Nombre to sLigaNombre
+
+    Get NamedValueAdd NavigateData.NamedValues "LigaID" sLigaID to NavigateData.NamedValues
+    Get NamedValueAdd NavigateData.NamedValues "LigaNombre" sLigaNombre to NavigateData.NamedValues
+End_Procedure
+        
         Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
             Move True to NavigateData.bReadOnly
         End_Procedure
@@ -137,6 +148,7 @@ End_Procedure
     End_Object 
 
     Procedure OnNavigateForward tWebNavigateData NavigateData Integer hoInvokingView Integer hoInvokingObject
+        Send ShowInfoBox (String(NavigateData.eNavigateType))
         WebSet pbRender of oNewButton to True
         WebSet pbRender of oDetailButton to True
 
