@@ -148,7 +148,7 @@ End_Procedure
     End_Object 
 
     Procedure OnNavigateForward tWebNavigateData NavigateData Integer hoInvokingView Integer hoInvokingObject
-        Send ShowInfoBox (String(NavigateData.eNavigateType))
+        
         WebSet pbRender of oNewButton to True
         WebSet pbRender of oDetailButton to True
 
