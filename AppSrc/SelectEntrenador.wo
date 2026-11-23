@@ -106,25 +106,8 @@ End_Procedure
 // ToDo: Fill in the from-parent child Select view object name for navigate forward
 //        WebRegisterPath ntNavigateForward oSelectView
 
-        Procedure OnRowClick String sRowId
-    tWebNavigateData NavigateData
-    Get GetNavigateData to NavigateData
-
-    Case Begin
-        Case (NavigateData.eNavigateType = nfFromParent)
-            Case Break
-
-        Case (NavigateData.eNavigateType = nfFromChild)
-            Send NavigateClose Self
-            Case Break
-
-        Case (NavigateData.eNavigateType = nfFromMain)
-            Send NavigateClose Self
-            Case Break
-
-        Case Else
-            Case Break
-    Case End
+Procedure OnRowClick String sRowId
+    Send NavigatePath of oDetailButton
 End_Procedure
 
         Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView

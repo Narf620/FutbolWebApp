@@ -90,7 +90,24 @@ End_Object
                 End_Object  
             End_Object  
     
-            
+                        Object oBackMenuItem is a cWebMenuItem
+                Set psCaption to "Volver"
+                Set psTooltip to "Volver a la vista anterior"
+
+                Procedure OnClick
+                    Handle hoView hoPreviousView
+
+                    Get TopViewHandle of oViewStack to hoView
+
+                    If (hoView <> C_WebUnresolvedObject) Begin
+                        Get InvokingViewHandleByView of oViewStack hoView to hoPreviousView
+
+                        If (hoPreviousView <> C_WebUnresolvedObject) Begin
+                            Send NavigateCancel of hoView
+                        End
+                    End
+                End_Procedure
+            End_Object
         End_Object  
         
         Object oFindToolBar is a cWebToolBar

@@ -47,6 +47,7 @@ End_Procedure
         Set pbFillHeight to True
         Set pbShowHeader to False
         Set piSortColumn to 0
+        Set Server to ojugador_DD
 
         Object ojugadorID is a cWebColumn
             Entry_Item jugador.ID
@@ -80,6 +81,8 @@ End_Procedure
 
         Object oDetailButton is a cWebColumnButton
             Set psCaption to "btn"
+            Set Server to ojugador_DD
+            WebRegisterPath ntNavigateForward oZoomJugador
             Set piWidth to 45
             Set pbFixedWidth to True
             Set pbResizable to False
@@ -103,32 +106,9 @@ End_Procedure
 // ToDo: Fill in the from-parent child Select view object name for navigate forward
 //        WebRegisterPath ntNavigateForward oSelectView
 
-        Procedure OnRowClick String sRowId
-            tWebNavigateData NavigateData
-            Get GetNavigateData to NavigateData
-
-            Case Begin
-                Case (NavigateData.eNavigateType = nfFromParent)
-// ToDo: Fill in the from-parent child Select view object name for navigate forward
-Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-//                    Send NavigateForward of oSelectView Self
-                    Case Break
-
-                Case (NavigateData.eNavigateType = nfFromChild)
-                    Send NavigateClose Self
-                    Case Break
-
-                Case (NavigateData.eNavigateType = nfFromMain)
-                    Send NavigateClose Self
-                    Case Break
-
-                Case Else // must be nfUndefined
-// ToDo: Fill in the from-parent child Select view object name for navigate forward
-Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-//                    Send NavigateForward of oSelectView Self
-
-            Case End
-        End_Procedure
+      Procedure OnRowClick String sRowId
+    Send NavigatePath of oDetailButton
+End_Procedure
 
         Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
             Move True to NavigateData.bReadOnly

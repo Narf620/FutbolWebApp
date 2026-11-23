@@ -32,6 +32,7 @@ Object oDashboard is a cWebView
     
     Set psCaption to "Dashboard"
     Set peViewType to vtUndefined
+    Set peStateMode to vsmOff
     Set pbShowCaption to False
     Set psCSSClass to "Dashboard"
     
