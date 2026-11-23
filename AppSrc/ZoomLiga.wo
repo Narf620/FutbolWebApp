@@ -82,7 +82,7 @@ End_Object
     Set psCSSClass to "MobileList"
     Set pbShowHeader to True
     Set Server to oequipo_DD
-    Set pbRender to False
+    Set pbRender to True
 
     Object oequipoID is a cWebColumn
         Entry_Item equipo.ID
@@ -97,14 +97,7 @@ End_Object
     End_Object
 End_Object
         
-        Object oMostrarEquiposBtn is a cWebButton
-    Set psCaption to "Mostrar equipos"
-
-    Procedure OnClick
-        WebSet pbRender of oEquiposList to True
-        Send Find of oequipo_DD FIRST_RECORD 1
-    End_Procedure
-End_Object
+        
         
     End_Object 
 
