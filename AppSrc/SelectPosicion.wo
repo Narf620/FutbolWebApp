@@ -10,6 +10,8 @@ Use cWebColumnButton.pkg
 Use cWebColumn.pkg
 
 Use Posicion.dd
+Use Jugador.dd
+Use JugadorPosicion.dd
 
 Object oSelectPosicion is a cWebView
     Set psCaption to "Seleccionar posiciones de fútbol."
@@ -21,6 +23,14 @@ Object oSelectPosicion is a cWebView
 
     Object oposicion_DD is a cDDPosicion
     End_Object 
+    
+    Object ojugador_DD is a cDDJugador
+End_Object
+
+Object ojugadorposicion_DD is a cDDJugadorPosicion
+    Set DDO_Server to oposicion_DD
+    Set DDO_Server to ojugador_DD
+End_Object
 
     Set Main_DD To oposicion_DD
     Set Server  to oposicion_DD
